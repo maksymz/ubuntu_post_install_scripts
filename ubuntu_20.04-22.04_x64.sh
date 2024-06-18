@@ -39,7 +39,7 @@ sudo apt install curl -y
 # Various PHP versions
 sudo add-apt-repository ppa:ondrej/php -y
 # Node
-curl -fsSL https://deb.nodesource.com/setup_16.x | sudo -E bash -
+curl -fsSL https://deb.nodesource.com/setup_18.x | sudo -E bash -
 # Guake and Shutter are already included in the default Ubuntu 22.04 repositories
 if grep VERSION_ID /etc/os-release | grep 22.; then
     printf '\nUbuntu 22.04 does not require adding custom Guake and Shutter repositories\n'
@@ -180,23 +180,23 @@ alias MCS='php -d xdebug.start_with_request=trigger \${DOCKERIZER_PROJECTS_ROOT_
 alias MND='php -d xdebug.start_with_request=trigger \${DOCKERIZER_PROJECTS_ROOT_DIR}php-quality-tools/vendor/bin/phpmnd '" > ~/.bash_aliases
 
 # Install PHP common packages
-    printf '\n>>> PHP 8.1 and common modules are going to be installed >>>\n'
+    printf '\n>>> PHP 8.2 and common modules are going to be installed >>>\n'
 sudo apt purge php* -y
 sudo rm -rf /etc/php/ || true
 sudo apt install \
-    php8.1-bz2 \
-    php8.1-cli \
-    php8.1-common \
-    php8.1-curl \
-    php8.1-intl \
-    php8.1-mbstring \
-    php8.1-mysql \
-    php8.1-opcache \
-    php8.1-readline \
-    php8.1-ssh2 \
-    php8.1-xml \
-    php8.1-xdebug \
-    php8.1-zip \
+    php8.2-bz2 \
+    php8.2-cli \
+    php8.2-common \
+    php8.2-curl \
+    php8.2-intl \
+    php8.2-mbstring \
+    php8.2-mysql \
+    php8.2-opcache \
+    php8.2-readline \
+    php8.2-ssh2 \
+    php8.2-xml \
+    php8.2-xdebug \
+    php8.2-zip \
     --no-install-recommends -y
 sudo apt remove composer -y
 php -r "copy('https://getcomposer.org/installer', 'composer-setup.php');"

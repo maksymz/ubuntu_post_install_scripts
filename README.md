@@ -162,7 +162,7 @@ gsettings set org.gnome.shell.app-switcher current-workspace-only true
 
 5. Use `Tweaks` to fine-tune your system.
 
-6. It is possible to customize terminal output to show current time and Git branch when you-re inside the repository. Use `$PS1` like this in your `~/.bashr_aliases`:
+6. It is possible to customize terminal output to show current time and Git branch when you-re inside the repository. Use `$PS1` like this in your `~/.bash_aliases`:
 
 ```bash
 # Let's make the prompt more colorful and show Git branch if available
