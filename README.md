@@ -15,7 +15,7 @@ It is possible to rerun this script to update software and install new packages.
 Automated environment installation script for Ubuntu 20.04-22.10 x64 or Ubuntu-based distributions:
 
 ```bash
-sh ubuntu_20.04-22.04_x64.sh
+sh ubuntu_24.04_x64.sh
 ```
 
 **Important!** Do not run it with `sudo` or when you switch to the root user. Never. Otherwise, a lot of things
@@ -31,6 +31,9 @@ Everything is Docker-based. See [Dockerizer](https://github.com/DefaultValue/doc
 
 ## Installed software list ##
 
+- `zsh`: Shell
+- `oh-my-zsh`: Zsh configuration manager
+- [Powerlevel10k](https://github.com/romkatv/powerlevel10k): A powerful Zsh theme
 - `curl`: A Tool to transfer data to or from a server
 - `Diodon`: clipboard manager
 - `Docker + docker-compose`: Spin up development environments
@@ -40,7 +43,9 @@ Everything is Docker-based. See [Dockerizer](https://github.com/DefaultValue/doc
 - `guake`: Pulldown terminal
 - `mc` (Midnight Commander): Console file manager
 - `mkcert`: Generating trusted SSL certificates for local development
-- `nodejs, php`: Needs no introduction
+- `php`: Needs no introduction
+- `nvm`: Node Version Manager
+- `NPM v22`: Node Package Manager
 - `PHPStorm`: IDE
 - `Shutter`: Making and editing screenshots
 - `Sublime Text`: Text editor
@@ -48,6 +53,14 @@ Everything is Docker-based. See [Dockerizer](https://github.com/DefaultValue/doc
 - `Tweaks`: Ubuntu fine-tuning
 - `vim`: CLI text editor which you can't exit from
 - `VirtualBox`: Virtualization tool for setting up Windows and other OS
+
+**Why NOT to use Docker Desktop?**
+
+From the Docker Desktop documentation:
+
+> Docker Desktop on Linux runs a Virtual Machine (VM) which creates and uses a custom docker context, desktop-linux, on startup.
+
+There is no need to use Docker Desktop on Linux because it is not a native solution. Docker Desktop is designed for Windows and macOS.
 
 **PHP modules that are installed**:
 - bz2
@@ -161,22 +174,6 @@ gsettings set org.gnome.shell.app-switcher current-workspace-only true
 ```
 
 5. Use `Tweaks` to fine-tune your system.
-
-6. It is possible to customize terminal output to show current time and Git branch when you-re inside the repository. Use `$PS1` like this in your `~/.bash_aliases`:
-
-```bash
-# Let's make the prompt more colorful and show Git branch if available
-PS1='${debian_chroot:+($debian_chroot)}\[\033[01;35m\][\d \t] \[\033[01;33m\]\w\[\033[01;31m\]\[\033[01;34m\]$(__git_ps1)\[\033[01;31m\] > \[\033[01;32m\]'
-
-# If this is an xterm set the title to user@host:dir
-case "$TERM" in
-xterm*|rxvt*)
-    PS1="\[\e]0;${debian_chroot:+($debian_chroot)}\w\a\]$PS1"
-    ;;
-*)
-    ;;
-esac
-```
 
 Or take this one as an example and modify it for your needs. Be sure to backup the file before that.
 
