@@ -149,11 +149,11 @@ export DOCKERIZER_SSL_CERTIFICATES_DIR=${HOME}/misc/certs/
     printf '\n>>> NVM (Node Version Manager) and NPM 22 are going to be installed >>>\n'
 sudo apt purge nodejs -y
 rm -rf ~/.nvm/
-wget -qO- https://raw.githubusercontent.com/nvm-sh/nvm/v0.40.1/install.sh | bash
+wget -qO- https://raw.githubusercontent.com/nvm-sh/nvm/v0.40.4/install.sh | bash
 # We don't know whether this is first install with Bash or we use Zsh, so we need to add NVM vars in order to run it
 export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"
-nvm install 22
+nvm install 24
 # shellcheck disable=SC2016
 printf '\nexport NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
@@ -227,19 +227,18 @@ alias MND='php -d xdebug.start_with_request=trigger \${DOCKERIZER_PROJECTS_ROOT_
 sudo apt purge php* -y
 sudo rm -rf /etc/php/ || true
 sudo apt install \
-    php8.3-bz2 \
-    php8.3-cli \
-    php8.3-common \
-    php8.3-curl \
-    php8.3-intl \
-    php8.3-mbstring \
-    php8.3-mysql \
-    php8.3-opcache \
-    php8.3-readline \
-    php8.3-ssh2 \
-    php8.3-xml \
-    php8.3-xdebug \
-    php8.3-zip \
+    php8.5-bz2 \
+    php8.5-cli \
+    php8.5-common \
+    php8.5-curl \
+    php8.5-intl \
+    php8.5-mbstring \
+    php8.5-mysql \
+    php8.5-readline \
+    php8.5-ssh2 \
+    php8.5-xml \
+    php8.5-xdebug \
+    php8.5-zip \
     --no-install-recommends -y
 sudo apt remove composer -y
 php -r "copy('https://getcomposer.org/installer', 'composer-setup.php');"
@@ -257,16 +256,8 @@ do
 display_errors=On
 display_startup_errors=On
 ignore_repeated_errors=On
-cgi.fix_pathinfo=1
 max_execution_time=3600
 session.gc_maxlifetime=84600
-
-opcache.enable=1
-opcache.validate_timestamps=1
-opcache.revalidate_freq=1
-opcache.max_wasted_percentage=10
-opcache.memory_consumption=256
-opcache.max_accelerated_files=20000
 
 xdebug.mode=debug
 xdebug.remote_handler=dbgp
@@ -296,7 +287,9 @@ fi
 cd "${DOCKERIZER_PROJECTS_ROOT_DIR}"dockerizer_for_php/
 git config core.fileMode false
 git reset --hard HEAD
-git pull origin master --no-rebase
+git fetch origin
+git checkout main
+git pull origin main --no-rebase
 composer install
 
     printf '\n>>> Create a Docker container with Traefik to works as a reverse-proxy between host OS and Docker compositions >>>\n'
@@ -327,7 +320,7 @@ fi
 # 2020-04-29: Current version is 6.1 (latest one)
     printf '\n>>> VirtualBox are going to be installed >>>\n'
 sudo apt purge virtualbox -y
-sudo apt install virtualbox-7.1 -y
+sudo apt install virtualbox-7.2 -y
     printf '\n>>> Adding VirtualBox user to your group, so it can access USB devices >>>\n'
 sudo usermod -aG vboxusers "${USER}"
 
@@ -394,11 +387,11 @@ rm -rf ./*
 rm -rf ./.* || true
 echo '{
     "require-dev": {
-        "squizlabs/php_codesniffer": "^3.7",
-        "phpstan/phpstan": "^2.0",
-        "vimeo/psalm": "^5.26",
+        "squizlabs/php_codesniffer": "^4.0",
+        "phpstan/phpstan": "^2.1",
+        "vimeo/psalm": "^6.16",
         "phpmd/phpmd": "^2.15",
-        "povils/phpmnd": "^3.5"
+        "povils/phpmnd": "^3.6"
     }
 }' > composer.json
 composer install

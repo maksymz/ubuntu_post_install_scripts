@@ -6,13 +6,14 @@ This script also installs the [Dockerizer](https://github.com/DefaultValue/docke
 - Install any Magento 2 version in 1 command.
 - Add Docker files to your existing projects in one command.
 
-It is possible to rerun this script to update software and install new packages. It will not break anything. A backup of your `~/.bash_aliases` file will be created during the update.
+It is possible to rerun this script to update software and install new packages. It will not break anything.
+A backup of your `~/.zshrc` file will be created during the update.
 
 [Full YouTube presentation](https://www.youtube.com/watch?v=88fCLnOnLvA)
 
 ## Running the script ##
 
-Automated environment installation script for Ubuntu 20.04-22.10 x64 or Ubuntu-based distributions:
+Automated environment installation script for Ubuntu 24.04 or Ubuntu-based distributions:
 
 ```bash
 sh ubuntu_24.04_x64.sh
@@ -45,7 +46,7 @@ Everything is Docker-based. See [Dockerizer](https://github.com/DefaultValue/doc
 - `mkcert`: Generating trusted SSL certificates for local development
 - `php`: Needs no introduction
 - `nvm`: Node Version Manager
-- `NPM v22`: Node Package Manager
+- `NodeJS v24`: JavaScript runtime
 - `PHPStorm`: IDE
 - `Shutter`: Making and editing screenshots
 - `Sublime Text`: Text editor
@@ -70,7 +71,6 @@ There is no need to use Docker Desktop on Linux because it is not a native solut
 - intl
 - mbstring
 - mysql
-- opcache
 - readline
 - ssh2
 - xml
@@ -179,4 +179,4 @@ Or take this one as an example and modify it for your needs. Be sure to backup t
 
 ## Author and maintainer ##
 
-[Maksym Zaporozhets](mailto:maksimz@default-value.com)
+[Maksym Zaporozhets](mailto:maksimzaporozhets@gmail.com)
